@@ -1,13 +1,48 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-//render is a funciton that recieve some data and returns a view
-//f(d) = v
-var HelloWorld = React.createClass({
+var USER_DATA = {
+  name: 'Erik Elyager',
+  username: 'elyager',
+  image: 'http://1.gravatar.com/avatar/a537c2ded076652a74a87985012e2a39'
+};
+
+var ProfilePic = React.createClass({
   render: function() {
-    console.log(this.props);
-    return <div> Hello World {this.props.name} </div>
+    return <img src={this.props.imageUrl} style={{height: 100, width: 100}} />
   }
 });
 
-ReactDOM.render(<HelloWorld name="Erik" anyData={20} />, document.getElementById('app'));
+var ProfileName = React.createClass({
+  render: function() {
+    return (
+      <div>{this.props.name}</div>
+    )
+  }
+});
+
+var ProfileLink = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <a href={'https://github.com/' + this.props.username}>
+        {this.props.username}
+        </a>
+      </div>
+    )
+  }
+});
+
+var Avatar = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <ProfilePic imageUrl={this.props.user.image} />
+        <ProfileName name={this.props.user.name} />
+        <ProfileLink username={this.props.user.username} />
+      </div>
+    )
+  }
+});
+
+ReactDOM.render(<Avatar user={USER_DATA} />, document.getElementById('app'));
