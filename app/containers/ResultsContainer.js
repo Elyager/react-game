@@ -14,7 +14,7 @@ var ResultsContainer = React.createClass({
       .then(function(scores) {
         this.setState({
           scores: scores,
-          isLoading: false
+          isLoading: true
         })
       }.bind(this));
   },

@@ -5,6 +5,8 @@ var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
 var Link = require('react-router').Link;
 var MainContainer = require('../components/MainContainer');
+var Loading = require('../components/Loading');
+
 
 function StarOver() {
   return (
@@ -19,7 +21,7 @@ function StarOver() {
 function Results(props) {
   if (props.isLoding === true) {
     return (
-      <p>Loading...</p>
+      <Loading />
     )
   }
   if (props.scores[0] === props.scores[1]) {
