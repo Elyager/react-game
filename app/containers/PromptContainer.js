@@ -6,11 +6,13 @@ var PromptContainer = React.createClass({
     router: React.PropTypes.object.isRequired
   },
   getInitialState: function () {
+    console.log('getInitialState');
     return {
       username: ''
     }
   },
   handleSubmitUser: function (e) {
+    console.log('handleSubmitUser');
     e.preventDefault();
     var username = this.state.username;
     this.setState({
@@ -29,12 +31,14 @@ var PromptContainer = React.createClass({
       this.context.router.push('/playerTwo/' + this.state.username)
     }
   },
-  handleUpdateUser: function (event) {
+  handleUpdateUser: function (ev) {
+    console.log('handleUpdateUser');
     this.setState({
-      username: event.target.value
+      username: ev.target.value
     });
   },
   render: function () {
+    console.log('render');
     return (
       <Prompt
         onSubmitUser={this.handleSubmitUser}

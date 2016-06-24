@@ -4,17 +4,26 @@ var styles = require('../styles');
 var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
 var Link = require('react-router').Link;
-var MainContent = require('../components/MainContent');
-var Loading = require('../components/Loading');
+var MainContent = require('./MainContent');
+var Loading = require('./Loading');
 
 
 function StarOver() {
   return (
     <div className='col-sm-12' style={styles.space}>
-      <Link to='playerOne'>
+      <Link to='/playerOne'>
         <button type='button' className='btn btn-lg btn-danger'>Star Over</button>
       </Link>
     </div>
+  )
+}
+
+function Tie(props) {
+  return (
+    <MainContent>
+      <h1>It is a tie!</h1>
+      <StarOver />
+    </MainContent>
   )
 }
 
@@ -24,12 +33,10 @@ function Results(props) {
       <Loading />
     )
   }
+
   if (props.scores[0] === props.scores[1]) {
     return (
-      <div className='jumbotron col-sm-12 text-center' style={styles.space}>
-        <h1>It is a tie!</h1>
-        <StarOver />
-      </div>
+      <Tie scores={props.scores} playersInfo={props.playersInfo} />
     )
   }
   var winningIndex = props.scores[0] > props.scores[1] ? 0 : 1;

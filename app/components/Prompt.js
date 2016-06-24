@@ -11,6 +11,7 @@ function Prompt (props) {
         <form onSubmit={props.onSubmitUser}>
           <div className='form-group'>
             <input
+              autoFocus='true'
               className='form-control'
               onChange={props.onUpdateUser}
               placeholder='Github Username'

@@ -50,7 +50,7 @@ var Loading = React.createClass({
     }.bind(this), this.props.speed);
   },
   componentWillUnmount: function() {
-    clearInterval(this.interval);
+    window.clearInterval(this.interval);
   },
   render: function() {
     return (
