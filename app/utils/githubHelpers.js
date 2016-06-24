@@ -20,13 +20,13 @@ function getTotalStars (repos) {
 
 function getPlayersData (player) {
   return getRepos(player.login)
-    .then(getTotalStars)
-    .then(function (totalStars) {
-      return {
-        followers: player.followers,
-        totalStars: totalStars
-      }
-    })
+  .then(getTotalStars)
+  .then(function (totalStars) {
+    return {
+      followers: player.followers,
+      totalStars: totalStars
+    }
+  })
 }
 
 function calculateScores (players) {
@@ -52,10 +52,10 @@ var helpers = {
     var playerOneData = getPlayersData(players[0]);
     var playerTwoData = getPlayersData(players[1]);
     return axios.all([playerOneData, playerTwoData])
-      .then(calculateScores)
-      .catch(function (err) {
-        console.log('Error in getPlayersInfo: ', err);
-      });
+    .then(calculateScores)
+    .catch(function (err) {
+      console.log('Error in getPlayersInfo: ', err);
+    });
   }
 };
 

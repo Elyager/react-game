@@ -21,7 +21,7 @@ function Prompt (props) {
             <button
               className='btn btn-block btn-success'
               type='submit'>
-                Continue
+              Continue
             </button>
           </div>
         </form>
